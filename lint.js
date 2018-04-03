@@ -50,7 +50,7 @@ ${colors.reset + error.message}
 const command = async (file, cmd) => {
     const verbose = cmd.quiet ? 1 : cmd.verbose;
     const spec = await loader.readOrError(file, { verbose, resolve: true });
-    const rules = loader.loadRules(cmd.rules, cmd.skip);
+    const rules = loader.loadRules(cmd.rules, cmd.skip, cmd.url);
 
     if (verbose > 1) {
         console.log('Found ' + rules.length + ' rules: ' + rules.map(x => x.name))
