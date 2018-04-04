@@ -1,5 +1,6 @@
 'use strict';
 
+const should = require('should');
 const common = require('../lib/common.js');
 
 describe('common.js', () => {

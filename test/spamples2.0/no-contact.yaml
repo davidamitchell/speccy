@@ -1,0 +1,8 @@
+---
+swagger: '2.0'
+info:
+  contact:
+    name: Phil
+  title: Swagger 2.0 Without Scheme
+  version: 1.0.0
+paths: {}

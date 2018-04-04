@@ -1,0 +1,129 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "description": "Booking Rooms and Workspaces at WeWork. Not to be confused with WeOS Rooms - which is a separate service.",
+    "title": "Rooms API",
+    "version": "5.0"
+  },
+  "host": "localhost:5000",
+  "basePath": "/",
+  "schemes": [
+    "http"
+  ],
+  "paths": {
+    "/daily_desk_reservations": {
+      "post": {
+        "produces": [
+          "application/json; charset=utf-8"
+        ],
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "type": "object"
+            }
+          }
+        },
+        "tags": [
+          "Daily Desks"
+        ],
+        "description": "",
+        "operationId": "Book Workspace",
+        "summary": "Book Workspace"
+      }
+    },
+    "/rooms/{room_id}/reserve/": {
+      "post": {
+        "consumes": [
+          "application/x-www-form-urlencoded"
+        ],
+        "produces": [
+          "application/json; charset=utf-8"
+        ],
+        "parameters": [
+          {
+            "description": "Id for a room",
+            "example": 202,
+            "in": "path",
+            "name": "room_id",
+            "required": true,
+            "type": "integer"
+          },
+          {
+            "in": "formData",
+            "name": "reservation[company_uuid]",
+            "type": "string"
+          },
+          {
+            "in": "formData",
+            "name": "reservation[date]",
+            "type": "string"
+          },
+          {
+            "in": "formData",
+            "name": "reservation[notes]",
+            "type": "string"
+          },
+          {
+            "in": "formData",
+            "name": "reservation[start_time]",
+            "type": "string"
+          },
+          {
+            "in": "formData",
+            "name": "reservation[end_time]",
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "422": {
+            "description": "Unprocessable Entity",
+            "schema": {
+              "properties": {
+                "base": {
+                  "items": {
+                    "type": "string",
+                    "x-example": [
+                      "Sorry, someone is already using the 16B conference room from 10:00 AM to 11:00 AM. Try your luck on another floor."
+                    ]
+                  },
+                  "type": "array"
+                },
+                "finish": {
+                  "items": {
+                    "type": "string",
+                    "x-example": [
+                      "can't make a reservation in the past"
+                    ]
+                  },
+                  "type": "array"
+                }
+              },
+              "type": "object"
+            }
+          }
+        },
+        "security": [],
+        "tags": [
+          "Rooms"
+        ],
+        "description": "",
+        "operationId": "Book Room",
+        "summary": "Book Room Really fuckdfgfdhdsafhsad fsad flong fjkdhfsds"
+      }
+    }
+  },
+  "tags": [
+    {
+      "description": "foo",
+      "name": "Rooms"
+    }
+  ],
+  "x-tagGroups": {
+    "foo": "Foo"
+  }
+}

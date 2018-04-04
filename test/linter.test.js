@@ -1,5 +1,6 @@
 'use strict';
 
+const should = require('should');
 const fs = require('fs');
 const path = require('path');
 const loader = require('../lib/loader.js');
@@ -36,7 +37,7 @@ function testProfile(profile) {
 
 describe('linter.js', () => {
     describe('lint()', () => {
-        const profilesDir = path.join(__dirname, './profiles/');
+        const profilesDir = path.join(__dirname, './profiles2.0/');
 
         fs.readdirSync(profilesDir).forEach(function (file) {
             const profile = JSON.parse(fs.readFileSync(profilesDir + file, 'utf8'))

@@ -1,6 +1,55 @@
 {
     "rules" : [
         {
+            "name":"base-path-exists",
+            "object": "swagger",
+            "enabled": true,
+            "description": "basePath must exist",
+            "truthy": "basePath"
+        },
+        {
+            "name":"base-path-trailing-slash",
+            "object": "swagger",
+            "enabled": true,
+            "description": "basePath must not have a trailing slash",
+            "notEndWith": { "property": "basePath", "value": "/" }
+        },
+        {
+            "name":"base-path-starting-slash",
+            "object": "swagger",
+            "enabled": true,
+            "description": "basePath must start with a slash",
+            "startWith": { "property": "basePath", "value": "/" }
+        },
+        {
+            "name":"info-contact",
+            "object": "info",
+            "enabled": true,
+            "description": "info object should contain contact object",
+            "truthy": "contact"
+        },
+        {
+            "name":"info-title",
+            "object": "info",
+            "enabled": true,
+            "description": "info object should contain title",
+            "truthy": "title"
+        },
+        {
+            "name":"info-description",
+            "object": "info",
+            "enabled": true,
+            "description": "info object should contain description",
+            "truthy": "description"
+        },
+        {
+            "name":"info-terms-of-service",
+            "object": "info",
+            "enabled": true,
+            "description": "info object should contain termsOfService",
+            "truthy": "termsOfService"
+        },
+        {
             "name": "parameter-description",
             "object": "parameter",
             "enabled": true,
@@ -44,30 +93,6 @@
             "notEndWith": { "property": "$key", "value": "/" }
         },
         {
-            "name":"server-trailing-slash",
-            "object": "server",
-            "enabled": true,
-            "description": "server url should not have a trailing slash",
-            "notEndWith": { "property": "url", "value": "/" }
-        },
-        {
-            "name": "openapi-tags",
-            "object": "openapi",
-            "enabled": true,
-            "description": "openapi object should have non-empty tags array",
-            "truthy": "tags"
-        },
-        {
-            "name": "openapi-tags-alphabetical",
-            "object": "openapi",
-            "enabled": true,
-            "description": "openapi object should have alphabetical tags",
-            "alphabetical": {
-                "properties": "tags",
-                "keyedBy": "name"
-            }
-        },
-        {
             "name": "reference-no-other-properties",
             "object": "reference",
             "enabled": true,
@@ -102,13 +127,6 @@
             "enabled": true,
             "description": "markdown descriptions should not contain <script> tags",
             "notContain": { "properties": [ "description" ], "value": "<script" }
-        },
-        {
-            "name":"info-contact",
-            "object": "info",
-            "enabled": true,
-            "description": "info object should contain contact object",
-            "truthy": "contact"
         },
         {
             "name":"license-apimatic-bug",

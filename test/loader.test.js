@@ -1,5 +1,6 @@
 'use strict';
 
+const should = require('should');
 const path = require('path');
 const yaml = require('js-yaml');
 const loader = require('../lib/loader.js');

@@ -4,66 +4,31 @@
     ],
     "fixtures": [
         {
-            "object": "openapi",
+            "object": "swagger",
             "tests": [
                 {
                     "input": {
-                        "openapi": 3
+                        "swagger": 2
                     },
+                    "expectValid": false,
                     "expectedRuleErrors": [
-                        "openapi-tags"
+                        "base-path-exists"
                     ]
                 },
                 {
                     "input": {
-                        "openapi": 3,
-                        "tags": []
+                        "swagger": 2,
+                        "basePath": "/"
                     },
+                    "expectValid": false,
                     "expectedRuleErrors": [
-                        "openapi-tags"
+                        "base-path-trailing-slash"
                     ]
                 },
                 {
                     "input": {
-                        "openapi": 3,
-                        "tags": [
-                            {
-                                "name": "foo"
-                            },
-                            {
-                                "name": "bar"
-                            }
-                        ]
-                    },
-                    "expectedRuleErrors": [
-                        "openapi-tags-alphabetical"
-                    ]
-                },
-                {
-                    "input": {
-                        "openapi": 3,
-                        "tags": [
-                            {
-                                "name": "foo"
-                            },
-                            {
-                                "name": "bar"
-                            }
-                        ]
-                    },
-                    "skip": [
-                        "openapi-tags-alphabetical"
-                    ],
-                    "expectValid": true
-                },
-                {
-                    "input": {
-                        "openapi": 3,
-                        "tags": [
-                            {
-                                "name": "foo"
-                            }
-                        ]
+                        "swagger": 2,
+                        "basePath": "/abc"
                     },
                     "expectValid": true
                 }

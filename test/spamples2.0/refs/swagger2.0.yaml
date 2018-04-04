@@ -1,0 +1,14 @@
+---
+swagger: '2.0'
+info:
+  title: OpenAPI Ref Example
+  version: 1.0.0
+paths:
+  /b:
+    post:
+      parameters:
+        - $ref: './parameters.yaml#/foo'
+      responses:
+        '405':
+          description: Invalid input
+      summary: b
