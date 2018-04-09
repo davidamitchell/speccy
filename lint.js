@@ -62,12 +62,12 @@ const command = async (file, cmd) => {
     validator.validate(spec, { verbose }, (err, _options) => {
         const { context, lintResults } = _options;
 
-        if (err) {
-            console.error(colors.red + 'Specification schema is invalid.' + colors.reset);
-            const output = formatSchemaError(err, context);
-            console.error(output);
-            process.exit(1);
-        }
+        // if (err) {
+        //     console.error(colors.red + 'Specification schema is invalid.' + colors.reset);
+        //     const output = formatSchemaError(err, context);
+        //     console.error(output);
+        //     process.exit(1);
+        // }
 
         if (lintResults.length) {
             console.error(colors.red + 'Specification contains lint errors: ' + lintResults.length + colors.reset);
